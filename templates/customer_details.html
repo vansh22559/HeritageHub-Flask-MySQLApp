@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Record</title>
+    <link rel="stylesheet" href="/Users/vanshyadav/Desktop/DbmsDead/styles.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customers</h1>
+        <table>
+            <tr>
+                <th>Customer ID</th>
+                <th>First Name</th>
+                <th>state</th>
+                <th>Phone Number</th>
+                <th>DOB</th>
+            </tr>
+            {% for cust in customer_details %}
+            <tr>
+                <td>{{ cust[0] }}</td> <!-- Assuming product_id is the first element in the tuple -->
+                <td>{{ cust[1] }}</td>
+                <td>{{ cust[7] }}</td>
+                <td>{{ cust[9] }}</td>
+                <td>{{ cust[10] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+</body>
+</html>

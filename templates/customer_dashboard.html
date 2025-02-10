@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="display-4 font-weight-bold mb-4" style="color: #6e2c00;">Welcome to HeritageHub!</h1>
+      <h2 class="mb-5">Your one-stop destination to shop traditional :)</h2>
+    </div>
+  </div>
+
+  <!-- Add some space between the text and the products -->
+  <div class="my-5"></div>
+
+  <!-- Alert Messages -->
+  <div id="alertMessages" class="my-3">
+    <!-- Messages will be dynamically added here -->
+  </div>
+
+  <div class="row">
+    {% for product in products %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <!-- Dummy space for picture (you can replace this with actual image tags) -->
+
+            {% if product[5] %}
+                {% set image_path = 'images/' + product[6] %}
+                {% if url_for('static', filename=image_path) %}
+                    <img src="{{ url_for('static', filename=image_path) }}" class="card-img-top" alt="Product Image">
+                {% else %}
+                    <!-- If image file doesn't exist, show placeholder or handle accordingly -->
+                    <img src="{{ url_for('static', filename='placeholder.jpg') }}" class="card-img-top" alt="Product Image">
+                {% endif %}
+            {% else %}
+                <!-- If no image filename provided -->
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" class="card-img-top" alt="Product Image">
+            {% endif %}
+
+            <h5 class="card-title" style="color: #6e2c00;">{{ product.2 }}</h5>
+            <p class="product_id" style="color: #6e2c00;">Product ID: {{ product.0 }}</p>
+            <p class="card-text" style="color: #6e2c00;">Price: ${{ product.3 }}</p>
+            <p class="card-text" style="color: #6e2c00;">Quantity available: {{ product.4 }}</p>
+            <p class="card-text" style="color: #6e2c00;">{{ product.5 }}</p>
+            <!-- Add to cart button -->
+            <button class="btn btn-primary add-to-cart-btn" data-product-id="{{ product.0 }}" style="background-color: #6e2c00; border-color: #6e2c00;">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+    addToCartButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var productId = button.getAttribute("data-product-id");
+        var currentUrl = window.location.href; // Get the current URL
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/add_to_cart/" + productId, true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            // Product added to cart successfully message
+            showMessage('success', 'Product added to cart successfully!');
+            // Delay the redirection slightly
+            setTimeout(function() {
+              window.location.href = currentUrl; // Redirect back to the same page
+            }, 2000); // 2000 milliseconds delay
+          } else {
+            // Error message
+            showMessage('danger', 'Error: Product could not be added to cart!');
+          }
+        };
+        xhr.send();
+      });
+    });
+
+    function showMessage(type, message) {
+      var alertMessages = document.getElementById('alertMessages');
+      var alertDiv = document.createElement('div');
+      alertDiv.classList.add('alert', 'alert-' + type);
+      alertDiv.textContent = message;
+      alertMessages.appendChild(alertDiv);
+      // Automatically dismiss the alert after 3 seconds
+      setTimeout(function() {
+        alertDiv.remove();
+      }, 3000);
+    }
+  });
+</script>
+
+{% endblock %}

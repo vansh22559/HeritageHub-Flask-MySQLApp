@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 24px;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .options {
+            display: flex;
+            justify-content: space-around;
+        }
+        .options ul {
+            padding: 0;
+            margin: 0;
+        }
+        .options li {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Admin Dashboard</h1>
+    <div class="options">
+        <div>
+            <h2>Orders Count:</h2>
+            <ul>
+                <li><a href="/orders">Check Total Number of Orders Placed</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Products List:</h2>
+            <ul>
+                <li><a href="/products">List available products</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>Delete Customer:</h2>
+            <a href="{{ url_for('show_delete_customer_form') }}">Delete Customer</a>
+        </div>
+        <div>
+            <h2>Customer Analysis:</h2>
+            <ul>
+                <li><a href="/customer_details">List available details</a></li>
+            </ul>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div>
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+</body>
+</html>

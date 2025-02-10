@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login</title>
+    <style>
+        body {
+            background-color: #f7f1e3; /* Creamy background */
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff; /* White container */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
+            color: #333; /* Dark text */
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #6e2c00; /* Dark brown heading */
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #6e2c00; /* Dark brown text */
+            text-align: left;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #f9f3e9; /* Light creamy background */
+            color: #333; /* Dark text */
+        }
+        input[type="submit"] {
+            background-color: #6e2c00; /* Dark brown button */
+            color: #fff; /* White text */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #4a1a00; /* Darker brown on hover */
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777; /* Gray text */
+        }
+        .footer a {
+            color: #6e2c00; /* Dark brown links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #4a1a00; /* Darker brown on hover */
+        }
+        .note {
+            font-size: 14px;
+            color: #777; /* Gray text */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Customer Login</h1>
+
+        <form method="POST">
+            <label for="customer_id">Customer ID</label>
+            <input type="text" id="customer_id" name="customer_id" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+
+            {% if error %}
+            <div class="error">{{ error }}</div>
+            {% endif %}
+        </form>
+
+        <div class="footer">
+            <p>Forgot your password? <a href="#" style="color: #6e2c00;">Reset here</a></p>
+            <p>Not a customer yet? <a href="#" style="color: #6e2c00;">Sign up now</a></p>
+        </div>
+
+        <div class="note">
+            <p>Note: Default username is <strong>1</strong> and password is <strong>password</strong>.</p>
+        </div>
+    </div>
+</body>
+</html>

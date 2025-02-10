@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container cart-container">
+    <h1 class="cart-title" style="color: #6e2c00; font-weight: bold;">Your Shopping Cart</h1>
+    <div class="cart-items"> 
+        <!-- Loop through cart items and display them -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="list-group">
+                        {% for cart_item in cart_items %}
+                            <div class="list-group-item list-group-item-action mb-3" style="background-color: #f7f1e3; border-color: #6e2c00;">
+                                <div class="row g-0">
+                                    <!-- Display product image -->
+                                    <div class="col-md-4">
+                                        {% set image_found = false %}
+                                        <!-- Check if cart_item matches product and display image -->
+                                        {% for product in products %}
+                                            {% if cart_item.2 == product.0 %}
+                                                {% set image_path = 'images/' + product[6] %}
+                                                {% if url_for('static', filename=image_path) %}
+                                                    <div class="col-md-4">
+                                                        <img src="{{ url_for('static', filename=image_path) }}" class="img-fluid" alt="Product Image">
+                                                    </div>
+                                                    {% set image_found = true %}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        <!-- If no matching image found, show placeholder -->
+                                        {% if not image_found %}
+                                            <div class="col-md-4">
+                                                <img src="{{ url_for('static', filename='placeholder.jpg') }}" class="img-fluid" alt="Product Image">
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-8 d-flex align-items-center">
+                                        <div>
+                                            <h5 class="mb-1">Product ID: {{ cart_item.2 }}</h5>
+                                            <p class="mb-1">Customer ID: {{ cart_item.1 }}</p>
+                                            <p class="mb-1">Price: ${{ cart_item.4 }}</p>
+                                            <!-- Add more item details here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Place Order Button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <button class="btn btn-primary place-order-btn" style="background-color: #6e2c00; border-color: #6e2c00;">Place Order</button> <!-- Dark brown button -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Place Order Button Click Event
+    var placeOrderButton = document.querySelector(".place-order-btn");
+    placeOrderButton.addEventListener("click", function () {
+        // Redirect to the /order_all_items/ route
+        window.location.href = "/order_all_items/";
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - HeritageHub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f1e3;
+            color: #6e2c00;
+            padding-top: 60px; /* Adjusted for navbar height */
+        }
+        .navbar {
+            background-color: #6e2c00;
+            padding: 1rem;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #f7f1e3;
+        }
+        .navbar-links a {
+            color: #f7f1e3;
+            margin-left: 1rem;
+        }
+        .content {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        .content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            animation: fadeInDown 2s;
+        }
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: justify; /* Align text to justify */
+        }
+        .team-section {
+            padding: 3rem 1rem;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+        .team-section h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            animation: fadeInDown 2s;
+        }
+        .team-member {
+            margin-bottom: 2rem;
+            animation: fadeInUp 2s;
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+        .team-member h3 {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .team-member p {
+            font-size: 1rem;
+            text-align: justify;
+        }
+        
+        footer {
+            background-color: #6e2c00;
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        footer a {
+            color: #f7f1e3;
+            margin: 0 0.5rem;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a href="/" class="navbar-brand">HeritageHub</a>
+        <ul class="navbar-links navbar-nav ml-auto">
+            <li class="nav-item"><a href="/explore" class="nav-link">Explore</a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>About Us</h1>
+        <p>HeritageHub is dedicated to preserving and promoting the rich cultural heritage of India. We bridge the gap between traditional artisans and a global audience, providing them with tools to thrive in the digital age.</p>
+
+        <p>With a passion for cultural preservation, we empower craftsmen to sustain their unique skills and traditions. By bringing India's cultural treasures to the forefront, we celebrate and sustain our diverse heritage for generations to come.</p>
+    </div>
+
+    <div class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center team-member">
+                <img src="{{ url_for('static', filename='vans.jpeg') }}" alt="Team Member 1">
+                <h3>Vansh Yadav</h3> 
+                <p>Vansh is a Computer Science and BioSciences junior at IIIT Delhi. His interests are deeply rooted in competitive programming and problem-solving.</p>
+            </div>
+            <div class="col-md-4 text-center team-member">
+                <img src="{{ url_for('static', filename='sham.jpeg') }}" alt="Team Member 2">
+                <h3>Shamik Sinha</h3> 
+                <p>Shamik Sinha is a Computer Science and Design junior at IIIT Delhi. Known for his innovative spirit, Shamik is constantly pushing the boundaries and exploring new ideas.</p>
+            </div>
+            <!-- Add more team members as needed -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 HeritageHub. All rights reserved.</p>
+        <div>
+            <a href="/about">Privacy Policy</a> |
+            <a href="/about">Terms of Service</a> |
+            <a href="/about">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
