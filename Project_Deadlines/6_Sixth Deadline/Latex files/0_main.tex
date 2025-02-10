@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+
+\usepackage{EngReport}
+
+\graphicspath{{Images/}}
+\bibliography{Sources}
+\onehalfspacing
+\graphicspath{{images/}}
+\pagestyle{empty}
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define code listing style
+\lstset{
+    basicstyle=\small\ttfamily,
+    breaklines=true,
+    showstringspaces=false,
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    frame=single,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\tiny\color{gray}
+}
+
+\geometry{letterpaper, portrait, includeheadfoot=true, hmargin=0.7in, vmargin=0.5in}
+
+%\fontsize{font size}{vertsize (usually 1.2x)}\selectfont
+
+\begin{document}
+\renewcommand{\familydefault}{\rmdefault}
+\input{titlepage}
+\pagebreak
+
+    \hspace{0pt}
+    \vfill
+    \begin{center}
+        \Huge \textbf{User Guide} \\
+        \vspace*{5pt}
+        \Large \textit{How to use HeritageHub CLI}
+    \end{center}
+    \vfill
+    \pagebreak
+\newpage
+
+\section{Introduction}
+The Heritage Hub CLI Application provides a command-line interface for different user roles: Admin, Customer, and Vendor. This user guide outlines the features and functionalities of each interface and explains how users can interact with the application.
+
+\section{Admin Interface}
+
+\subsection{Features}
+
+\begin{enumerate}
+    \item \textbf{Admin Login:}
+        \begin{itemize}
+            \item Allows admins to log in with their credentials.
+            \item Validates admin credentials against the database.
+            \item Provides access to admin-specific functionalities upon successful login.
+        \end{itemize}
+    
+    \item \textbf{Admin Menu Options:}
+        \begin{itemize}
+            \item Customer Analysis
+            \item Inventory Analysis
+            \item Customers with Greater Orders Than Others
+            \item Customer Reviews Sorted by Product Reviews
+            \item Customers Who Have Not Placed Any Orders
+            \item Top 5 Customers with Highest Total Purchases
+            \item Delete Customer
+            \item Logout
+        \end{itemize}
+    
+    \item \textbf{Delete Customer:}
+        \begin{itemize}
+            \item Allows admin to delete a customer record from the database.
+            \item Requires admin confirmation for customer deletion.
+        \end{itemize}
+\end{enumerate}
+
+\subsection{Usage}
+\begin{lstlisting}[language=Python]
+# Admin login function
+def admin_login(connection):
+    # Admin authentication logic
+    # Access admin menu upon successful login
+
+# Admin menu options functions (e.g., Customer Analysis, Inventory Analysis)
+# Functions to execute specific queries and display results
+
+# Main function to initiate admin interface
+def main():
+    # Display admin menu and handle user choices
+\end{lstlisting}
+
+\section{Customer Interface}
+
+\subsection{Features}
+
+\begin{enumerate}
+    \item \textbf{Customer Login:}
+        \begin{itemize}
+            \item Allows customers to log in with their credentials.
+            \item Authenticates customer credentials against the database.
+            \item Provides access to customer-specific functionalities upon successful login.
+        \end{itemize}
+    
+    \item \textbf{Customer Menu Options:}
+        \begin{itemize}
+            \item View All Products
+            \item View My Cart
+            \item View My Orders
+            \item Logout
+        \end{itemize}
+    
+    \item \textbf{View All Products:}
+        \begin{itemize}
+            \item Displays a list of all available products.
+            \item Allows customers to add products to their cart.
+        \end{itemize}
+    
+    \item \textbf{View My Cart:}
+        \begin{itemize}
+            \item Shows items added to the customer's cart.
+            \item Allows customers to place orders from their cart.
+        \end{itemize}
+\end{enumerate}
+
+\subsection{Usage}
+\begin{lstlisting}[language=Python]
+# Customer login function
+def customer_login(connection):
+    # Customer authentication logic
+    # Access customer menu upon successful login
+
+# Customer menu options functions (e.g., View All Products, View My Cart)
+# Functions to display product listings and manage cart operations
+
+# Main function to initiate customer interface
+def main():
+    # Display customer menu and handle user choices
+\end{lstlisting}
+
+\section{Vendor Interface}
+
+\subsection{Features}
+
+\begin{enumerate}
+    \item \textbf{Vendor Login:}
+        \begin{itemize}
+            \item Allows vendors to log in with their credentials.
+            \item Validates vendor credentials against the database.
+            \item Provides access to vendor-specific functionalities upon successful login.
+        \end{itemize}
+    
+    \item \textbf{Vendor Menu Options:}
+        \begin{itemize}
+            \item View My Products
+            \item Add New Product
+            \item Logout
+        \end{itemize}
+    
+    \item \textbf{View My Products:}
+        \begin{itemize}
+            \item Displays a list of products owned by the vendor.
+            \item Allows vendors to view and manage their listed products.
+        \end{itemize}
+    
+    \item \textbf{Add New Product:}
+        \begin{itemize}
+            \item Enables vendors to add new products to their inventory.
+            \item Collects product details such as name, price, quantity, and description.
+        \end{itemize}
+\end{enumerate}
+
+\subsection{Usage}
+\begin{lstlisting}[language=Python]
+# Vendor login function
+def vendor_login(connection):
+    # Vendor authentication logic
+    # Access vendor menu upon successful login
+
+# Vendor menu options functions (e.g., View My Products, Add New Product)
+# Functions to display vendor-specific product listings and manage inventory
+
+# Main function to initiate vendor interface
+def main():
+    # Display vendor menu and handle user choices
+\end{lstlisting}
+
+\section{Conclusion}
+The Heritage Hub CLI Application provides distinct interfaces for admins, customers, and vendors, each tailored to specific user roles. By following this user guide, users can effectively navigate through the application and utilize its functionalities based on their role within the Heritage Hub platform.
+
+
+\end{document}

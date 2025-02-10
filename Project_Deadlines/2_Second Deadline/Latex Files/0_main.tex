@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+
+\usepackage{EngReport}
+
+\graphicspath{{Images/}}
+\bibliography{Sources}
+\onehalfspacing
+\graphicspath{{images/}}
+\pagestyle{empty}
+
+\geometry{letterpaper, portrait, includeheadfoot=true, hmargin=0.7in, vmargin=0.5in}
+
+%\fontsize{font size}{vertsize (usually 1.2x)}\selectfont
+
+\begin{document}
+\renewcommand{\familydefault}{\rmdefault}
+\input{titlepage}
+\pagebreak
+
+
+\begin{center}
+    \fontsize{30}{36}\selectfont\textbf{Conceptual Model}
+\end{center}
+\fontsize{14}{15}\selectfont{Conceptual models represent high-level abstractions of the data and the relationships between different entities in the system. These models help in designing and understanding the structure of a database without getting into the technical details of how data is stored or accessed.
+\\ \\
+Here we have showcased the conceptual model using an ER Diagram based on the entities and relationships identified in the first deadline.
+\\\vspace{30pt}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{ERDiagram.png}
+  \captionof{figure 1. }{Entity Relation Diagram}
+  \label{fig:your_label}
+\end{figure}
+
+\newpage
+
+\begin{center}
+    \fontsize{30}{36}\selectfont\textbf{Relational Model}
+\end{center}
+\fontsize{14}{15}\selectfont{A Relational Model provides a clear and structured way to represent and manage data. It represents the database as a collection of relations. In other words, they are used to represent how data will be stored in the database.
+% \\\vspace{0pt}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{RelationalModel.png}
+  \\
+  \captionof{figure 2. }{Relational Model}
+  \label{fig:your_label}
+\end{figure}
+}
+\end{document}

@@ -1,0 +1,200 @@
+\documentclass[12pt]{article}
+
+\usepackage{EngReport}
+
+\graphicspath{{Images/}}
+\bibliography{Sources}
+\onehalfspacing
+\graphicspath{{images/}}
+\pagestyle{empty}
+
+\geometry{letterpaper, portrait, includeheadfoot=true, hmargin=0.7in, vmargin=0.5in}
+
+%\fontsize{font size}{vertsize (usually 1.2x)}\selectfont
+
+\begin{document}
+\renewcommand{\familydefault}{\rmdefault}
+\input{titlepage}
+\pagebreak
+
+% % % % % % % % % % % % % % % % % % % %
+% % % % %  REPORT CONTENT   % % % % % %
+% % % % % % % % % % % % % % % % % % % %
+
+
+\begin{center}
+    \fontsize{30}{36}\selectfont\textbf{Project Scope}
+\end{center}
+\fontsize{14}{15}\selectfont{Traditional clothing and artifacts are integral to India's rich heritage, representing centuries-old craftsmanship and cultural significance. With the advent of the internet, people have become more aware about their own cultural heritage and the demand for these products has increased significantly.  Yet, a missing link between customers and craftsmen hampers the industry. We aim to bridge this gap and elevate the accessibility of these cultural treasures.
+\\
+\\
+The project envisions a user-friendly online retail store for traditional items, offering a diverse product catalog and seamless functionalities for buyers and sellers. Buyers enjoy a desirable shopping experience with customised carts and secure payments. Sellers benefit from efficient product management tools, real-time sales insights, and adaptability. Admins have control over inventory, while delivery agents use it as a central hub for order tracking and feedback.
+\\
+\\
+The implementation will encompass essential back-end functionalities and an intuitive user interface, ensuring a seamless and satisfying shopping experience for users.The system would ideally support efficient searching through the catalog and be able to handle a large number of transactions.
+\pagebreak
+
+}
+\newpage
+
+\begin{center}
+    \fontsize{30}{36}\selectfont\textbf{Functional and Business Requirements}
+\end{center}A customer should be able to login using a login ID or password if they were already registered, or they could make a new account by providing information like email address or phone number and setting up a password for themselves. They can browse through the catalogs available on the website and choose a product (and see its description) they would like to order. They can add the product to the cart if it is available in stock or they could add it to the wish-list. They can finally order the product by providing personal information like delivery address and payment information. They may need to provide details of their card/UPI account if they wish to pay digitally and not offline. After placing an order, customers can see the order status of their order. Customers can also leave a review for the product they bought if they wish to. They may also do they same for the delivery partner assigned to them. Customers can also see their history of all the ordered items and can mark an old order for return or cancel any existing orders if cancellation is allowed. Customers can use their E-wallet related to their accounts to receive compensation for any items they may have returned or to make payments for new items.
+\\
+\\
+Shop owners need to register themselves on the platform. The shop owners can see the items which have been bought from their shops, and the revenue they have generated. They can also remove an item from the listing on the website or add a new item by requesting the web site administrator for the same. They may also choose to change the prices of the existing products.
+\\
+\\
+The delivery agents can see the deliveries they have been assigned. They can see where the orders are to be picked up and where they need to be delivered. They can also see the amount of money they receive as compensation for the number of deliveries made successfully, using the E-wallet related to their account.
+\\
+\\
+The web site administrator oversees all the products listed on the website. They can add or remove products. They may create discounts/special offers which may be availed by the customers.
+
+\section*{Identifying Entity Sets and Relationship Sets}
+\subsection*{Entity Sets:}
+
+We identified the following entity sets as a part of the research done about how e-commerce platforms work and taking into consideration all the stakeholders and their needs.
+\\
+\\
+\begin{minipage}[t]{0.45\linewidth}
+    \begin{itemize}
+        \item \textbf{Customers}
+        \item \textbf{Website Administrators}
+        \item \textbf{Shop Owners}
+        \item \textbf{Products}
+        \item \textbf{Orders}
+        \item \textbf{Product Review}
+        \item \textbf{E-wallet}
+        \item \textbf{Offers}
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+    \begin{itemize}
+        \item \textbf{Catalogue}
+        \item \textbf{Payment}
+        \item \textbf{Cart}
+        \item \textbf{Delivery Agents}
+        \item \textbf{Wish-list}
+        \item \textbf{Agent Review}
+        \item \textbf{Order History}
+    \end{itemize}
+\end{minipage}
+
+
+\subsection*{Relationship Sets:}
+
+Following are some of the relationship sets we identified. It is important to note, that the following list is not exhaustive.
+\\
+\\
+\begin{minipage}[t]{0.45\linewidth}
+    \begin{itemize}
+        \item \textit{order} \textbf{PlacedBy} \textit{customer}
+        \item \textit{customer} \textbf{Leaves} \textit{product review}
+        \item \textit{customer} \textbf{AddsTo} \textit{cart}
+        \item \textit{customer} \textbf{Views} \textit{order history}
+        \item \textit{customer} \textbf{Tracks} \textit{delivery agent}
+        \item \textit{admin} \textbf{AddsItemTo} \textit{catalogue}
+        \item \textit{admin} \textbf{RemovesItemFrom} \textit{catalogue}
+    \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+    \begin{itemize}
+        \item \textit{customer} \textbf{IsEligibleFor} \textit{offers}
+        \item \textit{products} \textbf{AddedTo} \textit{Cart}
+        \item \textit{delivery agent} \textbf{DeliversTo} \textit{customer}
+        \item \textit{e-wallet} \textbf{BelongsTo} \textit{customer}
+        \item \textit{catalogue} \textbf{Has} \textit{products}
+        \item \textit{shop owner} \textbf{Checks} \textit{e-wallet}
+        
+    \end{itemize}
+\end{minipage}
+
+\newpage
+
+
+\section*{Overview of Features Available to Users}
+
+\begin{itemize}
+    \item \textbf{Customer}
+
+    \begin{itemize}
+        \item Create an account for logging in
+        \item Browse the catalogue to search for products
+        \item Add/Remove items from the cart or the wish-list
+        \item Manage their wallet
+        \item Track order status
+        \item Leave review for products or delivery agents
+        \item Check order history
+    \end{itemize}
+    
+    \item \textbf{Shop Owners}
+
+    \begin{itemize}
+        \item Create an account to sell products/Register themselves
+        \item Add/Removes items they sell
+        \item Change price of products they sell
+        \item Manage their finance through wallet
+        \item Manage/Check sales statistics
+    \end{itemize}
+
+    \item \textbf{Website Administrator}
+
+    \begin{itemize}
+        \item Manage products available on the website
+        \item Add/Remove products from the website
+        \item Create/Remove discounts special offers
+        \item Manage the catalogue
+    \end{itemize}
+    
+    \item \textbf{Delivery Agents}
+
+    \begin{itemize}
+        \item Manage deliveries assigned
+        \item Ability to accept or reject new deliveries
+        \item Manage and view their finance through wallet
+        \item View reviews left by customers
+    \end{itemize}
+
+
+    
+\end{itemize}
+
+\newpage
+\begin{center}
+    \fontsize{30}{36}\selectfont\textbf{Technical Requirements}
+\end{center}
+\fontsize{14}{15}\selectfont{ We plan to make a full fledged project with both a functional front-end and back-end. The current selection of tools and technologies is as follows. However, it's worth noting that we remain open to adjustments in response to course guidelines or unforeseen developments during the development process. Adaptability is a key principle guiding our approach.
+
+\section{\fontsize{17}{24}\selectfont MySQL (Relational Database Management System)}
+MySQL, a free and open-source relational database management system, will be employed to handle diverse data storage and retrieval tasks, including bookings, payment management, parcel tracking, and dispatch management etc.
+
+\section{\fontsize{17}{24}\selectfont Django (Python-based Backend Framework)}
+Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. We plan on using it for building the backend of our online retail store, enabling efficient product management, secure payments, and real-time insights for buyers, sellers, admins, and delivery agents.
+
+\section{\fontsize{17}{24}\selectfont  React (JavaScript-based Frontend Library)}
+React, a JavaScript-based frontend library, empowers dynamic and interactive user interfaces. Its declarative syntax simplifies UI development, enabling efficient component-based architecture. We'll utilize React to craft a responsive and engaging user interface for our online retail store, ensuring a seamless and enjoyable shopping experience.
+
+\section{\fontsize{17}{24}\selectfont  JavaScript}
+JavaScript, a versatile scripting language, is integral to our project. It will help us enhance the interactivity and responsiveness of our online retail store's front-end, ensuring dynamic features, smooth user interactions, and real-time updates.
+
+\section{\fontsize{17}{24}\selectfont  Python3}
+Python 3, a powerful and user-friendly programming language, would form the backbone of our project. It facilitates efficient back-end development, data processing, and system integration.
+
+\section{\fontsize{17}{24}\selectfont  Cascading Style Sheets}
+Cascading Style Sheets (CSS) would be pivotal in shaping our project's visual identity. It will be used to style the HTML elements, ensuring a cohesive and aesthetically pleasing design for our online retail store.
+
+\section{\fontsize{17}{24}\selectfont  Hypertext Markup Language}
+Hypertext Markup Language (HTML) will be the fundamental structure of our project. It would define the content and layout of web pages for our online retail store.
+
+\newpage
+
+\begin{center}
+    \fontsize{30}{36}\selectfont\textbf{Contributions}
+\end{center}
+
+Shamik Sinha - 2022468
+
+}
+\end{document}
