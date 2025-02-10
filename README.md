@@ -79,7 +79,7 @@ To set up and run HeritageHub locally:
 Once the application is running locally:
 
 - Access the application through your browser at `[http://localhost:5000](http://heritagehubonline.pythonanywhere.com/)`.
-- Login with existing credentials, user 1 and password as password.
+- Login with existing credentials, **user 1** and **password** as password.
 - Explore cultural heritage products, view details, and interact with the content.
 - Admins can log in to manage site data and update information.
 
