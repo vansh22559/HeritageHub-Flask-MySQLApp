@@ -1,0 +1,2 @@
+
+# mycursor.execute("SHOW DATABASES")
