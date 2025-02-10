@@ -68,7 +68,7 @@ HeritageHub is an E-commerce platform utilizing MySQL, Python, and Flask to prom
 
 To set up and run HeritageHub locally:
 
-1. Clone the repository from [GitHub](https://github.com/theshamiksinha/HeritageHub-Django-MySQL/tree/main).
+1. Clone the repository from [GitHub]([https://github.com/theshamiksinha/HeritageHub-Django-MySQL/tree/main](https://github.com/vansh22559/HeritageHub-Flask-MySQLApp)).
 2. Install dependencies using `pip install -r requirements.txt`.
 3. Configure your MySQL database settings in `config.py`.
 4. Initialize the database using Flask-Migrate.
